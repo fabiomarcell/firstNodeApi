@@ -16,14 +16,15 @@ module.exports = function(app){
   	console.log("Index.");
   });
 
-  app.get('/insert', function (req, res) {
+  app.post('/insert', function (req, res) {
   	console.log("Insert.");
   	//set de dados na instancia
   	var tarefa = new Tarefa({
-  		titulo: "Novo Insert com Mongoose",
-  		descricao: "Testando o maldito mongoose(parece até nome de doença)"
+  		titulo: req.body.titulo,
+  		descricao: req.body.descricao
   	});
-  	//efetua insert
+
+    //efetua insert
   	tarefa.save(function(err) {
   		if (err){
   		    res.json({"status": false, "message": err});
