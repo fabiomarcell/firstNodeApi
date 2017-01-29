@@ -19,6 +19,8 @@ db.once('open', function() {
 	console.log("Conectado!");
 });
 
+// Zerei a Life no GIT :)
+
 //rotas
 require("./Controller/routes.js")(app);
 
